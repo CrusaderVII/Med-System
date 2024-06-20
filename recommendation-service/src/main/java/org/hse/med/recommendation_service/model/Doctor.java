@@ -1,7 +1,9 @@
 package org.hse.med.recommendation_service.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.UUID;
@@ -10,6 +12,8 @@ import java.util.UUID;
 @Table(name = "doctors")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Doctor {
 
     @Id
@@ -26,5 +30,9 @@ public class Doctor {
     @Column(name = "doctor_password")
     private String password;
 
-
+    public Doctor(String fullName, String login, String password) {
+        this.fullName = fullName;
+        this.login = login;
+        this.password = password;
+    }
 }

@@ -6,10 +6,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
 @Table(name = "doctors")
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @NoArgsConstructor
@@ -29,6 +32,14 @@ public class Doctor {
 
     @Column(name = "doctor_password")
     private String password;
+
+    @ManyToMany(cascade = CascadeType.REFRESH)
+    @JoinTable (
+            name = "doctors_authorities",
+            joinColumns = {@JoinColumn(name = "doctor_id")},
+            inverseJoinColumns = {@JoinColumn(name = "authority_id")}
+    )
+    private Set<DoctorAuthority> authorities;
 
     public Doctor(String fullName, String login, String password) {
         this.fullName = fullName;

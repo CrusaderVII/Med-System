@@ -15,6 +15,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Doctor {
 
     @Id
@@ -39,5 +41,9 @@ public class Doctor {
     )
     private Set<DoctorAuthority> authorities;
 
-
+    public Doctor(String fullName, String login, String password) {
+        this.fullName = fullName;
+        this.login = login;
+        this.password = password;
+    }
 }

@@ -40,7 +40,9 @@ public class SecurityConfig {
 
          return http
                  .authorizeHttpRequests((authorize) ->
-                         authorize.anyRequest().authenticated())
+                         authorize
+                                 .requestMatchers("**/doctor/save", "**/doctor/auth").permitAll()
+                                 .anyRequest().authenticated())
                  .build();
     }
 

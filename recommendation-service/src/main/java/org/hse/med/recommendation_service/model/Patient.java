@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -26,6 +27,9 @@ public class Patient {
     @Column(name = "patient_date_of_birth", nullable = false)
     private LocalDate dateOfBirth;
 
+    @Column(name = "patient_age_category")
+    private int ageCategory;
+
     @Column(name = "patient_age", nullable = false)
     private int age;
 
@@ -43,4 +47,12 @@ public class Patient {
 
     @Column(name = "patient_contact")
     private String contact;
+
+    @ManyToMany
+    @JoinTable (
+            name = "patients_diagnoses",
+            joinColumns = {@JoinColumn(name = "patient_id")},
+            inverseJoinColumns = {@JoinColumn(name = "diagnosis_id")}
+    )
+    private Set<Diagnosis> diagnoses;
 }

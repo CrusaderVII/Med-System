@@ -11,8 +11,6 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "doctors")
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @NoArgsConstructor

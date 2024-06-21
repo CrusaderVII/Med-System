@@ -26,4 +26,7 @@ public class Diagnosis {
     @ManyToMany(mappedBy = "diagnoses")
     private Set<Patient> patients;
 
+    @ManyToMany(mappedBy = "diagnoses")
+    private Set<Recommendation> recommendations;
+
 }

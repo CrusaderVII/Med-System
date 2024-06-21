@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hse.med.recommendation_service.model.Recommendation;
 
 @Entity
 @Table(name = "gmfcs")
@@ -23,4 +24,8 @@ public class Gmfcs {
 
     @Column
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "recommendation")
+    private Recommendation recommendation;
 }

@@ -16,6 +16,7 @@ import java.util.UUID;
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "patient_id")
     private UUID id;
 
     @Column(name = "patient_full_name", nullable = false)
@@ -27,9 +28,6 @@ public class Patient {
 
     @Column(name = "patient_date_of_birth", nullable = false)
     private LocalDate dateOfBirth;
-
-    @Column(name = "patient_age_category")
-    private int ageCategory;
 
     @Column(name = "patient_age", nullable = false)
     private int age;
@@ -58,6 +56,13 @@ public class Patient {
     private Set<Diagnosis> diagnoses;
 
     @ManyToOne
-    @JoinColumn(name = "gmfcs")
+    @JoinColumns({
+            @JoinColumn(name = "patient_age_category", referencedColumnName = "age_category"),
+            @JoinColumn(name = "gmfcs_level", referencedColumnName = "gmfcs_level")}
+    )
     private Gmfcs gmfcs;
+
+    @ManyToOne
+    @JoinColumn(name = "recommendation")
+    private Recommendation recommendation;
 }

@@ -3,6 +3,7 @@ package org.hse.med.recommendation_service.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hse.med.recommendation_service.model.gmfcs.Gmfcs;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -55,4 +56,8 @@ public class Patient {
             inverseJoinColumns = {@JoinColumn(name = "diagnosis_id")}
     )
     private Set<Diagnosis> diagnoses;
+
+    @ManyToOne
+    @JoinColumn(name = "gmfcs")
+    private Gmfcs gmfcs;
 }

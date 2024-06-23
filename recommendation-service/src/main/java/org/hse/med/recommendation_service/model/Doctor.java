@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hse.med.recommendation_service.dto.creation.DoctorCreationDTO;
 
 import java.util.Set;
 import java.util.UUID;
@@ -43,5 +44,11 @@ public class Doctor {
         this.fullName = fullName;
         this.login = login;
         this.password = password;
+    }
+
+    public Doctor(DoctorCreationDTO doctorCreationDTO) {
+        this.fullName = doctorCreationDTO.fullName();
+        this.login = doctorCreationDTO.login();
+        this.password = doctorCreationDTO.password();
     }
 }

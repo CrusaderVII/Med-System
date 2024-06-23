@@ -2,10 +2,13 @@ package org.hse.med.recommendation_service.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hse.med.recommendation_service.dto.creation.PatientCreationDTO;
 import org.hse.med.recommendation_service.model.gmfcs.Gmfcs;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Set;
 import java.util.UUID;
 
@@ -13,6 +16,7 @@ import java.util.UUID;
 @Table(name = "patients")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -65,4 +69,18 @@ public class Patient {
     @ManyToOne
     @JoinColumn(name = "recommendation")
     private Recommendation recommendation;
+
+    public Patient(PatientCreationDTO creationDTO) {
+        this.fullName = creationDTO.fullName();
+        this.gender = creationDTO.gender();
+        this.dateOfBirth = creationDTO.dateOfBirth();
+        this.age = (int) ChronoUnit.YEARS
+                .between(creationDTO.dateOfBirth(), LocalDate.now());
+        this.height = creationDTO.height();
+        this.weight = creationDTO.weight();
+        this.bloodType = creationDTO.bloodType();
+        this.address = creationDTO.address();
+        this.contact = creationDTO.contact();
+        this.diagnoses = creationDTO.diagnoses();
+    }
 }

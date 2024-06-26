@@ -17,4 +17,9 @@ public class MainController {
     public String homePage() {
         return "home.html";
     }
+
+    @GetMapping("/help")
+    public String helpPage() {
+        return "help.html";
+    }
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Med System</title>
+    <link th:href="@{/styles/login.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class = "main-wrapper">
+        <div class="header-wrapper">
+            <div class="line"></div>
+            <div class="logo-container">
+                <img th:src="@{/images/logo-med.png}">
+            </div>
+            <div class="line"></div>
+        </div>
+        <div class="form-wrapper">
+            <span>Система рекомендаций ТРС при заболеваниях нервной системы у детей</span>
+            <form>
+                <input class="login" type="text" placeholder="Введите имя..."/>
+                <input class="password" type="password" placeholder="Введите пароль...">
+                <button>Войти</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

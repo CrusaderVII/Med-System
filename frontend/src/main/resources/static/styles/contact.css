@@ -76,7 +76,7 @@ body {
 }
 
 .contact-list li input {
-    width: 90px;
+    width: 100px;
     background-color: transparent;
     border: none;
     height: 30px;
@@ -85,7 +85,11 @@ body {
     font-size: large;
 }
 
-.contact-list li button {
+.contact-list li .li-item h2 {
+    margin-left: 15px;
+}
+
+.contact-list li .li-item button {
     width: 45px;
     background-color: transparent;
     border: 2.5px solid #d7d8c6;;
@@ -96,9 +100,16 @@ body {
     font-size: medium;
     display: flex;
     cursor: pointer;
-    transition: 0.3s;
+
 }
 
-.contact-list li button:hover {
+.contact-list li .li-item button:hover {
     background-color: #d7d8c6;
 }
+
+.li-item {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+

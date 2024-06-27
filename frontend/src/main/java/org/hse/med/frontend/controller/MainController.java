@@ -22,4 +22,9 @@ public class MainController {
     public String helpPage() {
         return "help.html";
     }
+
+    @GetMapping("/contact")
+    public String contactPage() {
+        return "contact.html";
+    }
 }

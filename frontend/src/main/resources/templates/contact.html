@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Med System</title>
+    <link th:href="@{/styles/contact.css}" rel="stylesheet" />
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/copy.css' rel='stylesheet'>
+</head>
+<body>
+<div class = "main-wrapper">
+    <div class="header-wrapper">
+        <div class="line"></div>
+        <div class="logo-container">
+            <img th:src="@{/images/logo-med.png}">
+        </div>
+        <div class="line"></div>
+    </div>
+    <div class="back-wrapper">
+        <a th:href="@{home}">НАЗАД</a>
+    </div>
+    <div class="text-wrapper">
+        <uL class="contact-list">
+            <li>
+                <h2>telegram:</h2><input type="text" value="@lazykosti" id="telegram" readonly>
+                <button onclick="copy()"><i class="gg-copy"></i></button>
+            </li>
+        </uL>
+    </div>
+    <script>
+        function copy() {
+          var copyText = document.getElementById("telegram");
+          copyText.select();
+          document.execCommand("copy");
+          alert("Контакт скопирован в буфер обмена: " + copyText.value);
+        }
+    </script>
+</div>
+</body>

@@ -34,14 +34,14 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
-        http.formLogin(Customizer.withDefaults());
+        http.httpBasic(Customizer.withDefaults());
         //TODO: resolve csrf problem
         http.csrf(AbstractHttpConfigurer::disable);
 
          return http
                  .authorizeHttpRequests((authorize) ->
                          authorize
-                                 .requestMatchers("**/doctor/save", "**/doctor/auth").permitAll()
+                                 .requestMatchers("/doctor/save", "/doctor/auth").permitAll()
                                  .anyRequest().authenticated())
                  .build();
     }

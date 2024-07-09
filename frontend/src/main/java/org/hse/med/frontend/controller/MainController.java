@@ -2,6 +2,7 @@ package org.hse.med.frontend.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -12,6 +13,11 @@ public class MainController {
     public String loginPage() {
         return "login.html";
     }
+
+//    @PostMapping("/login")
+//    public String login() {
+//
+//    }
 
     @GetMapping("/home")
     public String homePage() {

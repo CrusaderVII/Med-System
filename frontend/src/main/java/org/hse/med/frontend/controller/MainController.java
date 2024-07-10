@@ -19,6 +19,11 @@ public class MainController {
 //
 //    }
 
+    @GetMapping("/work")
+    public String workPage() {
+        return "work.html";
+    }
+
     @GetMapping("/home")
     public String homePage() {
         return "home.html";

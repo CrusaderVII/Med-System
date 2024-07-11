@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Med System</title>
+    <link th:href="@{/styles/add_user.css}" rel="stylesheet" />
+</head>
+<body>
+<div class = "main-wrapper">
+    <header>
+        <h2>MedSystem</h2>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/>
+        </svg>
+    </header>
+    <div class="content-wrapper">
+        <nav>
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <g>
+                        <path fill="none" d="M0 0h24v24H0z"/>
+                        <path d="M20 20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9H1l10.327-9.388a1 1 0 0 1 1.346 0L23 11h-3v9zm-8-3l3.359-3.359a2.25 2.25 0 1 0-3.182-3.182l-.177.177-.177-.177a2.25 2.25 0 1 0-3.182 3.182L12 17z"/> </g>
+                    </svg>
+                    <a class="link" th:href="@{/org.hse/med-system/home}">Home</a>
+                </li>
+                <li class="navbar-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                    <a class="link" th:href="@{/org.hse/med-system/work}">Work</a>
+                </li>
+                <li class="navbar-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
+                        <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
+                    </svg>
+                    <a class="link" href="#">Archive</a>
+                </li>
+                <li class="navbar-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <g> <path fill="none" d="M0 0h24v24H0z"/>
+                        <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-11v6h2v-6h-2zm0-4v2h2V7h-2z"/> </g>
+                    </svg>
+                    <a class="link" th:href="@{/org.hse/med-system/help}">Help</a>
+                </li>
+                <li class="navbar-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text-fill" viewBox="0 0 16 16">
+                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
+                    </svg>
+                    <a class="link" th:href="@{/org.hse/med-system/contact}">Contact us</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="content">
+            <form action="#" class="add-patient-form">
+                <div class="form-wrapper">
+                    <div class="add-patient-header">
+                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 471 471" xml:space="preserve">
+                            <g>
+                                <g>
+                                    <path id="XMLID_1791_" d="M394.507,325.2c-9.9,13.8-26.1,22.7-44.3,22.7c-30.1,0-54.6-24.5-54.6-54.6v-19.6h-19.6
+                                        c-30.1,0-54.6-24.5-54.6-54.6s24.5-54.6,54.6-54.6h19.6v-19.6c0-26.9,19.6-49.4,45.3-53.8c-12.5-52.2-59.5-91.1-115.5-91.1
+                                        c-65.6,0-118.8,53.2-118.8,118.8c0,42.6,22.4,79.9,56.1,100.9c-86.7,30-123.4,123.3-137.4,217.9c-2.6,17.6,11.2,33.4,29.1,33.4
+                                        h342.1c17.8,0,31.7-15.8,29.1-33.4C419.707,398.4,410.007,359.5,394.507,325.2z M186.707,118.8c0,9.8-7.9,17.7-17.7,17.7
+                                        s-17.7-7.9-17.7-17.7c0-40.9,33.3-74.2,74.2-74.2c9.8,0,17.7,7.9,17.7,17.7s-7.9,17.7-17.7,17.7
+                                        C204.007,80.1,186.707,97.4,186.707,118.8z"/>
+                                    <g id="XMLID_1785_">
+                                        <path d="M424.407,197.5h-52.6v-52.6c0-12-9.7-21.6-21.6-21.6l0,0c-12,0-21.7,9.7-21.7,21.6v52.6h-52.6c-12,0-21.6,9.7-21.6,21.6
+                                            c0,12,9.7,21.6,21.6,21.6h52.6v52.6c0,12,9.7,21.6,21.7,21.6l0,0c12,0,21.6-9.7,21.6-21.6v-52.6h52.6c12,0,21.6-9.7,21.6-21.6
+                                            C446.107,207.2,436.407,197.5,424.407,197.5z"/>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="fields-wrapper">
+                        <div class="field-wrapper">
+                            <p>Full name: </p>
+                            <input type="text">
+                        </div>
+                        <div class="field-wrapper">
+                            <p>Gender: </p>
+                            <input list="genders">
+                            <datalist id="genders">
+                                <option value="Male" />
+                                <option value="Female" />
+                            </datalist>
+                        </div>
+                        <div class="field-wrapper">
+                            <p>Date of birth: </p>
+                            <input type="text">
+                        </div>
+                        <div class="field-wrapper">
+                            <p>Height: </p>
+                            <input type="text">
+                        </div>
+                        <div class="field-wrapper">
+                            <p>Weight: </p>
+                            <input type="text">
+                        </div>
+                        <div class="field-wrapper">
+                            <p>Blood type: </p>
+                            <input type="text">
+                        </div>
+                        <div class="field-wrapper">
+                            <p>Address: </p>
+                            <input type="text">
+                        </div>
+                        <div class="field-wrapper">
+                            <p>Diagnosis: </p>
+                            <input type="text">
+                        </div>
+                        <div class="field-wrapper">
+                            <p>GMFCS level: </p>
+                            <input type="text">
+                        </div>
+                        <div class="field-wrapper">
+                            <p>Contact: </p>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="buttons-wrapper">
+                        <input type="submit" value="Add patient"/>
+                        <a href="#">
+                            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 Z M3,8 C3,10.7614237 5.23857625,13 8,13 C9.01910722,13 9.96700318,12.6951083 10.7574478,12.1715651 L3.8284349,5.24255219 C3.30489166,6.03299682 3,6.98089278 3,8 Z M8,3 C6.98089278,3 6.03299682,3.30489166 5.24255219,3.8284349 L12.1715651,10.7574478 C12.6951083,9.96700318 13,9.01910722 13,8 C13,5.23857625 10.7614237,3 8,3 Z"/>
+                            </svg>Cancel
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

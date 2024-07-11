@@ -20,10 +20,10 @@ public class Recommendation {
     @Column(name = "recommendation_id")
     private long id;
 
-    @Column(name = "recommendation_value")
+    @Column(name = "recommendation_value", columnDefinition = "TEXT")
     private String recommendation;
 
-    @Column(name = "recommendation_contradictions")
+    @Column(name = "recommendation_contradictions", columnDefinition = "TEXT")
     private String contradictions;
 
     @ManyToMany

@@ -22,7 +22,7 @@ public class Gmfcs {
     @Id
     private int gmfcs_level;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @ManyToOne

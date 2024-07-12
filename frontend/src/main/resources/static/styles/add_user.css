@@ -1,0 +1,262 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #ede7db;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+header {
+    background-color: #373737;
+    width: 100%;
+    height: 45px;
+    align-items: center;
+    color: #ede7db;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+header svg {
+    width: 27px;
+    height: 27px;
+    fill: #ede7db;
+    margin-right: 25px;
+}
+
+header h2 {
+    margin-left: 25px;
+}
+
+.content-wrapper {
+    display: flex;
+    width: 100%;
+    height: 145vh;
+    padding-top: 0;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 250px;
+    background-color: #919789;
+    padding: 0;
+    margin: 0;
+}
+
+nav .navbar-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+nav .navbar-list .navbar-item {
+    color: #ede7db;
+    display: flex;
+    width: 100%;
+    height: 55px;
+    border-bottom: 2px solid #ede7db;
+    align-items: center;
+    padding-left: 5px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+nav .navbar-list .navbar-item svg {
+    width: 25px;
+    height: 25px;
+    fill: #ede7db;
+    margin-left: 5px;
+}
+
+nav .navbar-list .navbar-item a {
+    text-decoration: none;
+    color: #ede7db;
+    margin-left: 10px;
+}
+
+nav .navbar-list .navbar-item:hover {
+    background-color: #ede7db;
+}
+
+nav .navbar-list .navbar-item:hover a {
+    color: #373737;
+}
+
+nav .navbar-list .navbar-item:hover svg {
+    fill: #373737;
+}
+.info-wrapper {
+    width: 100%;
+}
+
+.info-wrapper p {
+    margin-left: 30px;
+    color: #919789;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 90%;
+}
+
+.content .add-patient-form {
+    width: 70%;
+    padding-bottom: 60px;
+}
+
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border: 2px solid #919789;
+    border-radius: 18px;
+    padding-bottom: 40px;
+}
+
+.add-patient-header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    background-color: #919789;
+    align-items: center;
+    border-radius: 15px 15px 0 0;
+}
+
+.add-patient-header svg {
+    width: 70px;
+    height: 70px;
+    fill: #ede7db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fields-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 10px;
+}
+
+.field-wrapper:not(:first-of-type) {
+    margin-top: 10px;
+}
+
+.field-wrapper {
+    display: flex;
+    width: 100%;
+    padding-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.field-wrapper input {
+    width: 80%;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    border-bottom:2px solid #919789;
+    border-radius: 4px;
+    outline: none;
+    background-color: #dbd7cf;
+    transition: .2s;
+}
+
+.field-wrapper input:hover {
+    border-width: 4px;
+    background-color: #d6d1c7;
+}
+
+.field-wrapper input:focus {
+    border-width: 4px;
+    background-color: #d6d1c7;
+}
+
+.field-wrapper p {
+    font-weight: bold;
+}
+
+.buttons-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    justify-content: space-around;
+    border-top: 2px solid #919789;
+    padding-top: 40px;
+}
+
+.buttons-wrapper input {
+    height: 40px;
+    width: 60%;
+    border: 2px solid #919789;
+    border-radius: 6px;
+    transition: .4s;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: larger;
+    color: #919789;
+}
+
+.buttons-wrapper input:hover {
+    background-color: #919789;
+    color: #ede7db;
+}
+
+.buttons-wrapper a {
+    display: flex;
+    margin-left: 30px;
+    height: 40px;
+    width: 20%;
+    border: 2px solid #ff4242;
+    border-radius: 6px;
+    transition: .4s;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: larger;
+    color: #ff4242;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons-wrapper a svg {
+    height: 30px;
+    width: 30px;
+    fill: #ff4242;
+    transition: .4s;
+    padding-right: 10px;
+}
+
+.buttons-wrapper a:hover {
+    background-color: #ff4242;
+    color: #ede7db;
+}
+
+.buttons-wrapper a:hover svg {
+    fill: #ede7db;
+}
+
+

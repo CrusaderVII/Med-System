@@ -1,9 +1,15 @@
 package org.hse.med.frontend.controller;
 
+import org.hse.med.frontend.dto.PatientDTO;
+import org.hse.med.frontend.dto.PatientSearchDTO;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Controller
 @RequestMapping("org.hse/med-system")

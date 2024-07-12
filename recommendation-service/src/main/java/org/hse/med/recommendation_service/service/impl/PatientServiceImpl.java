@@ -2,6 +2,7 @@ package org.hse.med.recommendation_service.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.hse.med.recommendation_service.dto.creation.PatientCreationDTO;
+import org.hse.med.recommendation_service.model.Gender;
 import org.hse.med.recommendation_service.model.Patient;
 import org.hse.med.recommendation_service.repository.PatientRepository;
 import org.hse.med.recommendation_service.service.PatientService;

@@ -7,18 +7,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
-public class RestTemplateFactory implements FactoryBean<RestTemplate>, InitializingBean {
-
-    private RestTemplate restTemplate;
+public class RestTemplateFactory implements FactoryBean<RestTemplate> {
 
     @Override
     public boolean isSingleton() {
-        return true;
+        return false;
     }
 
     @Override
-    public RestTemplate getObject() throws Exception {
-        return restTemplate;
+    public RestTemplate getObject() {
+        return new RestTemplate();
     }
 
     @Override
@@ -26,9 +24,4 @@ public class RestTemplateFactory implements FactoryBean<RestTemplate>, Initializ
         return RestTemplate.class;
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-
-        restTemplate = new RestTemplate(new HttpComponentsClientHttpRequestFactory());
-    }
 }

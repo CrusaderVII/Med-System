@@ -2,6 +2,7 @@ package org.hse.med.frontend.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.hse.med.frontend.dto.PatientDTO;
+import org.hse.med.frontend.dto.PatientFullDTO;
 import org.hse.med.frontend.dto.PatientSearchDTO;
 import org.hse.med.frontend.dto.creation.PatientCreationDTO;
 import org.hse.med.frontend.service.PatientService;
@@ -47,7 +48,7 @@ public class WorkController {
     @PostMapping("/add")
     public String addNewPatient(Model model, @ModelAttribute("patientCreationDTO") PatientCreationDTO patientCreationDTO,
                                 BindingResult bindingResult) {
-        PatientDTO patient = patientService.addPatient(patientCreationDTO);
+        PatientFullDTO patient = patientService.addPatient(patientCreationDTO);
         model.addAttribute("patient", patient);
         return "patient_profile.html";
     }

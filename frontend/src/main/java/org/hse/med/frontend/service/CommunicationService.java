@@ -1,19 +1,8 @@
 package org.hse.med.frontend.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.hse.med.frontend.dto.PatientFullDTO;
+import org.hse.med.frontend.dto.creation.PatientCreationDTO;
 
-@Service
-@RequiredArgsConstructor
-public class CommunicationService {
-
-//    private final RestTemplate restTemplate;
-//
-//    DoctorDTO authDoctor(AuthDTO auth) {
-//
-//    }
-//
-//    HttpHeaders createHeaders(String) {
-//
-//    }
+public interface CommunicationService {
+    PatientFullDTO addPatient(PatientCreationDTO patientCreationDTO);
 }

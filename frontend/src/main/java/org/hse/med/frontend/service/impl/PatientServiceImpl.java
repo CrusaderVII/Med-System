@@ -1,7 +1,10 @@
 package org.hse.med.frontend.service.impl;
 
+import lombok.RequiredArgsConstructor;
 import org.hse.med.frontend.dto.PatientDTO;
+import org.hse.med.frontend.dto.PatientFullDTO;
 import org.hse.med.frontend.dto.creation.PatientCreationDTO;
+import org.hse.med.frontend.service.CommunicationService;
 import org.hse.med.frontend.service.PatientService;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +13,10 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class PatientServiceImpl implements PatientService {
+
+    private final CommunicationService communicationService;
 
     @Override
     public List<PatientDTO> findPatientsByName(String name) {
@@ -20,12 +26,11 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public PatientDTO addPatient(PatientCreationDTO patientCreationDTO) {
+    public PatientFullDTO addPatient(PatientCreationDTO patientCreationDTO) {
+        patientCreationDTO.setGender(patientCreationDTO.getGender().toUpperCase());
         System.out.println(patientCreationDTO);
-        int age = (int) ChronoUnit.YEARS.between(LocalDate.now(), patientCreationDTO.getDateOfBirth());
-        PatientDTO patientDTO = new PatientDTO(patientCreationDTO.getFullName(), patientCreationDTO.getDateOfBirth(),
-                age);
+        PatientFullDTO patientDTO = communicationService.addPatient(patientCreationDTO);
         System.out.println(patientDTO);
-        return null;
+        return patientDTO;
     }
 }

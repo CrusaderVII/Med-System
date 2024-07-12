@@ -3,10 +3,9 @@ package org.hse.med.frontend.factory;
 
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
-
-import java.net.http.HttpClient;
 
 public class RestTemplateFactory implements FactoryBean<RestTemplate>, InitializingBean {
 

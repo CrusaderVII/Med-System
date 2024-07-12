@@ -248,6 +248,7 @@ nav .navbar-list .navbar-item:hover svg {
 }
 
 .add-button {
+    text-decoration: none;
     background-color: transparent;
     cursor: pointer;
     height: 35px;

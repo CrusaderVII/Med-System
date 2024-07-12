@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Med System</title>
-    <link th:href="@{/styles/add_user.css}" rel="stylesheet" />
+    <link th:href="@{/styles/add_patient.css}" rel="stylesheet" />
 </head>
 <body>
 <div class = "main-wrapper">
@@ -51,10 +51,10 @@
             </ul>
         </nav>
         <div class="content">
-            <form action="#" class="add-patient-form">
+            <form method="post" action="#" th:object="${patientCreationDTO}" th:action="@{/org.hse/med-system/work/add}" class="add-patient-form">
                 <div class="form-wrapper">
                     <div class="add-patient-header">
-                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        <svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 471 471" xml:space="preserve">
                             <g>
                                 <g>
@@ -76,11 +76,11 @@
                     <div class="fields-wrapper">
                         <div class="field-wrapper">
                             <p>Full name: </p>
-                            <input type="text">
+                            <input type="text" th:field="*{fullName}">
                         </div>
                         <div class="field-wrapper">
                             <p>Gender: </p>
-                            <input list="genders">
+                            <input list="genders" th:field="*{gender}">
                             <datalist id="genders">
                                 <option value="Male" />
                                 <option value="Female" />
@@ -88,40 +88,40 @@
                         </div>
                         <div class="field-wrapper">
                             <p>Date of birth: </p>
-                            <input type="text">
+                            <input type="text" th:field="*{dateOfBirth}">
                         </div>
                         <div class="field-wrapper">
                             <p>Height: </p>
-                            <input type="text">
+                            <input type="text" th:field="*{height}">
                         </div>
                         <div class="field-wrapper">
                             <p>Weight: </p>
-                            <input type="text">
+                            <input type="text" th:field="*{weight}">
                         </div>
                         <div class="field-wrapper">
                             <p>Blood type: </p>
-                            <input type="text">
+                            <input type="text" th:field="*{bloodType}">
                         </div>
                         <div class="field-wrapper">
                             <p>Address: </p>
-                            <input type="text">
+                            <input type="text" th:field="*{address}">
                         </div>
                         <div class="field-wrapper">
                             <p>Diagnosis: </p>
-                            <input type="text">
+                            <input type="text" th:field="*{diagnoses}">
                         </div>
                         <div class="field-wrapper">
                             <p>GMFCS level: </p>
-                            <input type="text">
+                            <input type="text" th:field="*{GmfcsLevel}">
                         </div>
                         <div class="field-wrapper">
                             <p>Contact: </p>
-                            <input type="text">
+                            <input type="text" th:field="*{contact}">
                         </div>
                     </div>
                     <div class="buttons-wrapper">
                         <input type="submit" value="Add patient"/>
-                        <a href="#">
+                        <a href="@{/org.hse/med-system/work}">
                             <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 Z M3,8 C3,10.7614237 5.23857625,13 8,13 C9.01910722,13 9.96700318,12.6951083 10.7574478,12.1715651 L3.8284349,5.24255219 C3.30489166,6.03299682 3,6.98089278 3,8 Z M8,3 C6.98089278,3 6.03299682,3.30489166 5.24255219,3.8284349 L12.1715651,10.7574478 C12.6951083,9.96700318 13,9.01910722 13,8 C13,5.23857625 10.7614237,3 8,3 Z"/>
                             </svg>Cancel

@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -20,4 +21,5 @@ public class PatientFullDTO {
     private int bloodType;
     private String address;
     private String contact;
+    private Set<DiagnosisDTO> diagnoses;
 }

@@ -50,6 +50,11 @@ public class WorkController {
                                 BindingResult bindingResult) {
         PatientFullDTO patient = patientService.addPatient(patientCreationDTO);
         model.addAttribute("patient", patient);
+
+        String firstName = patient.getFullName().split(" ")[1];
+        String lastName = patient.getFullName().split(" ")[0];
+        model.addAttribute("patient_first_name", firstName);
+        model.addAttribute("patient_last_name", lastName);
         return "patient_profile.html";
     }
 }

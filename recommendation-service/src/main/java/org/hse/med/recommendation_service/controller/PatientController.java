@@ -6,6 +6,7 @@ import org.hse.med.recommendation_service.dto.ToDTOMapper;
 import org.hse.med.recommendation_service.dto.creation.PatientCreationDTO;
 import org.hse.med.recommendation_service.model.Patient;
 import org.hse.med.recommendation_service.service.PatientService;
+import org.hse.med.recommendation_service.util.exception.diagnosis.NoSuchDiagnosisException;
 import org.hse.med.recommendation_service.util.exception.patient.NoSuchPatientException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +30,7 @@ public class PatientController {
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.OK)
-    public PatientDTO saveNewPatient(@RequestBody PatientCreationDTO patientCreationDTO) {
+    public PatientDTO saveNewPatient(@RequestBody PatientCreationDTO patientCreationDTO) throws NoSuchDiagnosisException {
         Patient patient = patientService.save(patientCreationDTO);
         return mapper.toPatientDTO(patient);
     }

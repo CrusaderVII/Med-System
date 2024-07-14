@@ -12,6 +12,7 @@ import org.hse.med.recommendation_service.util.exception.patient.NoSuchPatientEx
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -26,6 +27,12 @@ public class PatientServiceImpl implements PatientService {
     public Patient getById(UUID id) throws NoSuchPatientException {
         return patientRepository.findById(id)
                 .orElseThrow(() -> new NoSuchPatientException("id", id.toString()));
+    }
+
+    @Override
+    public List<Patient> getByName(String namePattern) {
+        String validNamePattern = namePattern.replaceAll("\\+", " ")+"%";
+        return patientRepository.findByNamePattern(validNamePattern);
     }
 
     @Override

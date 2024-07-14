@@ -11,6 +11,7 @@ import org.hse.med.recommendation_service.util.exception.patient.NoSuchPatientEx
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -26,6 +27,16 @@ public class PatientController {
     public PatientDTO getPatientById(@PathVariable UUID id) throws NoSuchPatientException {
         Patient patient = patientService.getById(id);
         return mapper.toPatientDTO(patient);
+    }
+
+    @GetMapping("/name/{namePattern}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<PatientDTO> getPatientsByName(@PathVariable String namePattern) {
+        List<Patient> patients = patientService.getByName(namePattern);
+        List<PatientDTO> patientDTOs = patients.stream()
+                .map(mapper::toPatientDTO)
+                .toList();
+        return patientDTOs;
     }
 
     @PostMapping("/save")

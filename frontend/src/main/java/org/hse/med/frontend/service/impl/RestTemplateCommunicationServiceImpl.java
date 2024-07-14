@@ -9,6 +9,9 @@ import org.hse.med.frontend.service.CommunicationService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class RestTemplateCommunicationServiceImpl implements CommunicationService {
@@ -23,5 +26,16 @@ public class RestTemplateCommunicationServiceImpl implements CommunicationServic
                 PatientFullDTO.class);
 
         return patientFullDTO;
+    }
+
+    @Override
+    public List<PatientFullDTO> getPatientsWithPathVar(String pathVariable, String field) {
+        RestTemplate rest = factory.getObject();
+        String url = "http://localhost:8080/med-system/api/v1/patient/"+field+"/"+pathVariable;
+        List<PatientFullDTO> patientFullDTOs = new ArrayList<>();
+
+        patientFullDTOs = rest.getForObject(url, patientFullDTOs.getClass());
+
+        return patientFullDTOs;
     }
 }

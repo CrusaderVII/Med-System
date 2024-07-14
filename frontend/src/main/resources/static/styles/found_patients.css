@@ -116,6 +116,7 @@ nav .navbar-list .navbar-item:hover svg {
     margin-top: 20px;
     margin-left: 10px;
     width: 90%;
+    overflow: auto;
 }
 
 .patient-wrapper {

@@ -33,7 +33,7 @@ public class WorkController {
     @PostMapping("/find")
     public String findPatientByName (Model model, @ModelAttribute("patientSearchDTO") PatientSearchDTO patientSearchDTO,
                                      BindingResult bindingResult) {
-        List<PatientDTO> patients = patientService.findPatientsByName("");
+        List<PatientFullDTO> patients = patientService.findPatientsByName(patientSearchDTO.getName());
         model.addAttribute("patients", patients);
 
         return "found_patients.html";

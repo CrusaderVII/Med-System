@@ -19,9 +19,9 @@ public class PatientServiceImpl implements PatientService {
     private final CommunicationService communicationService;
 
     @Override
-    public List<PatientDTO> findPatientsByName(String name) {
-        PatientDTO patientDTO = new PatientDTO("Ivanov Ivan Ivanovich", LocalDate.now(), 19);
-        List<PatientDTO> patients = List.of(patientDTO);
+    public List<PatientFullDTO> findPatientsByName(String name) {
+        name = name.replaceAll(" ", "+");
+        List<PatientFullDTO> patients = communicationService.getPatientsWithPathVar(name, "name");
         return patients;
     }
 

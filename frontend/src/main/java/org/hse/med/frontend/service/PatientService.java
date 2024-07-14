@@ -7,6 +7,6 @@ import org.hse.med.frontend.dto.creation.PatientCreationDTO;
 import java.util.List;
 
 public interface PatientService {
-    List<PatientDTO> findPatientsByName(String name);
+    List<PatientFullDTO> findPatientsByName(String name);
     PatientFullDTO addPatient(PatientCreationDTO patientCreationDTO);
 }

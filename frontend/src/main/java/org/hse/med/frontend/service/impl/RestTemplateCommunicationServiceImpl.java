@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -29,13 +30,23 @@ public class RestTemplateCommunicationServiceImpl implements CommunicationServic
     }
 
     @Override
-    public List<PatientFullDTO> getPatientsWithPathVar(String pathVariable, String field) {
+    public List<PatientFullDTO> getPatientsWithNamePattern(String pattern) {
         RestTemplate rest = factory.getObject();
-        String url = "http://localhost:8080/med-system/api/v1/patient/"+field+"/"+pathVariable;
+        String url = "http://localhost:8080/med-system/api/v1/patient/name/"+pattern;
         List<PatientFullDTO> patientFullDTOs = new ArrayList<>();
 
         patientFullDTOs = rest.getForObject(url, patientFullDTOs.getClass());
 
         return patientFullDTOs;
+    }
+
+    @Override
+    public PatientFullDTO getPatientWithId(UUID id) {
+        RestTemplate rest = factory.getObject();
+        String url = "http://localhost:8080/med-system/api/v1/patient/id/"+id;
+
+        PatientFullDTO patientFullDTO = rest.getForObject(url, PatientFullDTO.class);
+
+        return patientFullDTO;
     }
 }

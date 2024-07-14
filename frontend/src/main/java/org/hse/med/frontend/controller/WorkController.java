@@ -9,13 +9,12 @@ import org.hse.med.frontend.service.PatientService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.rmi.server.UID;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("org.hse/med-system/work")
@@ -35,8 +34,22 @@ public class WorkController {
                                      BindingResult bindingResult) {
         List<PatientFullDTO> patients = patientService.findPatientsByName(patientSearchDTO.getName());
         model.addAttribute("patients", patients);
+        model.addAttribute("selected_patient", new PatientFullDTO());
 
         return "found_patients.html";
+    }
+
+    @GetMapping("/patient/profile/{id}")
+    public String patientProfile(Model model, @PathVariable UUID id) {
+
+        PatientFullDTO patient = patientService.findPatientById(id);
+        System.out.println(patient);
+        model.addAttribute("patient", patient);
+        String firstName = patient.getFullName().split(" ")[1];
+        String lastName = patient.getFullName().split(" ")[0];
+        model.addAttribute("patient_first_name", firstName);
+        model.addAttribute("patient_last_name", lastName);
+        return "patient_profile.html";
     }
 
     @GetMapping("/add")

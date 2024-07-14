@@ -4,8 +4,10 @@ import org.hse.med.frontend.dto.PatientFullDTO;
 import org.hse.med.frontend.dto.creation.PatientCreationDTO;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface CommunicationService {
     PatientFullDTO addPatient(PatientCreationDTO patientCreationDTO);
-    List<PatientFullDTO> getPatientsWithPathVar(String pathVariable, String field);
+    List<PatientFullDTO> getPatientsWithNamePattern(String pattern);
+    PatientFullDTO getPatientWithId(UUID id);
 }

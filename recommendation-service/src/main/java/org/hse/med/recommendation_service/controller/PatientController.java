@@ -22,7 +22,7 @@ public class PatientController {
     private final PatientService patientService;
     private final ToDTOMapper mapper;
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     @ResponseStatus(HttpStatus.OK)
     public PatientDTO getPatientById(@PathVariable UUID id) throws NoSuchPatientException {
         Patient patient = patientService.getById(id);

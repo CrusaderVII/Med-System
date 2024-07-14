@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -21,8 +22,15 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public List<PatientFullDTO> findPatientsByName(String name) {
         name = name.replaceAll(" ", "+");
-        List<PatientFullDTO> patients = communicationService.getPatientsWithPathVar(name, "name");
+        if (name==null || name.equals("")) name = "-";
+        List<PatientFullDTO> patients = communicationService.getPatientsWithNamePattern(name);
         return patients;
+    }
+
+    @Override
+    public PatientFullDTO findPatientById(UUID id) {
+        PatientFullDTO patient = communicationService.getPatientWithId(id);
+        return patient;
     }
 
     @Override

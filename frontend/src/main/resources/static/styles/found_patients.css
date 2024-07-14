@@ -126,6 +126,7 @@ nav .navbar-list .navbar-item:hover svg {
     border-bottom: 2px solid #919789;
     padding-bottom: 10px;
     padding-left: 10px;
+    padding-right: 0;
     justify-content: space-between;
 }
 
@@ -144,10 +145,20 @@ nav .navbar-list .navbar-item:hover svg {
     font-weight: bold;
 }
 
+.patient-wrapper form {
+    width: 100%;
+}
+
+.patient-wrapper a {
+    width: 17%;
+    display: flex;
+    text-decoration: none;
+}
+
 .report-button {
     display: flex;
     height: 40px;
-    width: 12%;
+    width: 50%;
     border: 2px solid #919789;
     border-radius: 4px;
     background-color: transparent;

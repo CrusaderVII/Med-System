@@ -54,8 +54,11 @@ public class PatientServiceImpl implements PatientService {
 
     private Set<Diagnosis> mapDiagnoses(String diagnoses) throws NoSuchDiagnosisException{
         Set<Diagnosis> mappedDiagnoses = new HashSet<>();
+        String[] diagnosesArray = diagnoses.trim()
+                .replaceAll(" +", " ")
+                .split(" ");
 
-        for (String code : diagnoses.split(" ")) {
+        for (String code : diagnosesArray) {
             mappedDiagnoses.add(diagnosisService.getById(code));
         }
 

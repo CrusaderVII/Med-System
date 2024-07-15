@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/CrusaderVII/Trello-config.git
+          uri: https://github.com/CrusaderVII/Med-System-Config.git
           default-label: master
 
 server:

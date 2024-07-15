@@ -1,14 +1,16 @@
 package org.hse.med.frontend.factory;
 
 
+import lombok.RequiredArgsConstructor;
+import org.hse.med.frontend.controller.advice.RestTemplateExceptionHandler;
 import org.springframework.beans.factory.FactoryBean;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.web.client.RestTemplate;
 
+@RequiredArgsConstructor
 public class RestTemplateFactory implements FactoryBean<RestTemplate> {
 
+    private final RestTemplateBuilder restTemplateBuilder;
     @Override
     public boolean isSingleton() {
         return false;
@@ -16,7 +18,11 @@ public class RestTemplateFactory implements FactoryBean<RestTemplate> {
 
     @Override
     public RestTemplate getObject() {
-        return new RestTemplate();
+        RestTemplate restTemplate = restTemplateBuilder
+                .errorHandler(new RestTemplateExceptionHandler())
+                .build();
+
+        return restTemplate;
     }
 
     @Override

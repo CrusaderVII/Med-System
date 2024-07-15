@@ -5,6 +5,7 @@ import org.hse.med.frontend.dto.PatientDTO;
 import org.hse.med.frontend.dto.PatientFullDTO;
 import org.hse.med.frontend.dto.PatientSearchDTO;
 import org.hse.med.frontend.dto.creation.PatientCreationDTO;
+import org.hse.med.frontend.service.DiagnosisService;
 import org.hse.med.frontend.service.PatientService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,7 @@ import java.util.UUID;
 public class WorkController {
 
     private final PatientService patientService;
+    private final DiagnosisService diagnosisService;
 
     @GetMapping
     public String workPage(Model model) {
@@ -55,6 +57,7 @@ public class WorkController {
     @GetMapping("/add")
     public String addPatientPage(Model model) {
         model.addAttribute("patientCreationDTO", new PatientCreationDTO());
+        model.addAttribute("diagnosesFromDB", diagnosisService.findAllDiagnoses());
         return "add_patient.html";
     }
 
